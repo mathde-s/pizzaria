@@ -1,4 +1,4 @@
-```mermaid
+```
 class Pagamento {
 - Long id
 - Long pedidoId
