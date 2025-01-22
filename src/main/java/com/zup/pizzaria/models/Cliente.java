@@ -14,6 +14,8 @@ public class Cliente {
     private String email;
     private String telefone;
 
+    public Cliente() {
+    }
     public Cliente(String nome, String email, String telefone) {
         this.nome = nome;
         this.email = email;
