@@ -16,6 +16,8 @@ public class Pagamento {
     private LocalDateTime data;
     private FormaPagamento formaPagamento;
 
+    public Pagamento() {
+    }
     public Pagamento(Double valorPago,FormaPagamento formaPagamento){
         this.valorPago = valorPago;
         try{
