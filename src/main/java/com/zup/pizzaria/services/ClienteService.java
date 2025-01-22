@@ -27,8 +27,7 @@ public class ClienteService {
         List<Cliente> clientesSalvos = clienteRepository.findAll();
         // retorna uma lista de ClienteResponseDTO
         return clientesSalvos.stream()
-                .map(cliente -> new ClienteResponseDTO(cliente.getId(), cliente.getNome()
-                        ,cliente.getEmail(), cliente.getTelefone()))
+                .map(this::converteClienteParaClienteResponse)
                 .collect(Collectors.toList());
     }
 
