@@ -24,11 +24,17 @@ public class ClienteService {
     }
 
     public List<ClienteResponseDTO> listaClientes() {
-        List<Cliente> clientesSalvos = clienteRepository.findAll();
-        // retorna uma lista de ClienteResponseDTO
-        return clientesSalvos.stream()
-                .map(this::converteClienteParaClienteResponse)
-                .collect(Collectors.toList());
+        try {
+            List<Cliente> clientesSalvos = clienteRepository.findAll();
+            if (clientesSalvos == null){
+                throw new RuntimeException("sem clientes salvos");
+            }
+            return clientesSalvos.stream()
+                    .map(this::converteClienteParaClienteResponse)
+                    .collect(Collectors.toList());
+        } catch (Exception e) {
+            throw new RuntimeException("erro ao listar clientes.");
+        }
     }
 
     private Cliente converteClienteRequestParaCliente(ClienteRequestDTO clienteRequest) {
