@@ -1,31 +1,24 @@
-package com.zup.pizzaria.models;
+package com.zup.pizzaria.dtos;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+public class ClienteResponseDTO {
 
-@Entity
-public class Cliente {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
     private String nome;
     private String email;
     private String telefone;
 
-    public Cliente() {
-    }
-    public Cliente(String nome, String email, String telefone) {
+    public ClienteResponseDTO(long id, String nome, String email, String telefone) {
+        this.id = id;
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
     }
-    public Long getId() {
+
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -52,5 +45,4 @@ public class Cliente {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
-
 }
